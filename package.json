@@ -1,0 +1,7 @@
+{
+  "name": "pet-adoption-app",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "npm install --prefix backend"
+  }
+}
