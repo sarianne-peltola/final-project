@@ -24,37 +24,16 @@ const app = express();
 const petSchema = new mongoose.Schema({
   name: String,
   species: String,
-  breeds: {
-    primary: { type: String },
-    secondary: { type: String },
-    mixed: { type: Boolean },
-    unknown: { type: Boolean }
-  },
-  colors: {
-    primary: { type: String },
-    secondary: { type: String },
-    tertiary: { type: String }
-  },
+  breeds: String,
+  colors: String,
   age: String,
   gender: String,
   size: String,
   coat: String,
-  attributes: {
-    spayed_neutered: { type: Boolean },
-    house_trained: { type: Boolean }
-  },
-  environment: {
-    children: { type: String },
-    dogs: { type: Boolean },
-    cats: { type: String }
-  },
+  attributes: String,
+  environment: String,
   description: String,
-  primary_photo_cropped: {
-    small: { type: String },
-    medium: { type: String },
-    large: { type: String },
-    full: { type: String },
-  },
+  primary_photo_cropped: String,
   status: String
 })
 
@@ -78,10 +57,27 @@ app.get('/', (req, res) => {
   res.json(listEndpoints(app))
 })
 
+// Get all the pets
 app.get('/pets', async (req, res) => {
   const allPets = await Pet.find()
 
   res.json(allPets)
+})
+
+// Get one pet by id (path parameter)
+app.get('/pets/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const singlePet = await Pet.findById(id)
+    if (singlePet) {
+      res.json(singlePet)
+    } else {
+      res.status(404).json({ message: 'Not found' })
+    }
+  } catch (error) {
+    res.status(400).json({ message: 'Invalid request', error })
+  }
 })
 
 // Start the server
