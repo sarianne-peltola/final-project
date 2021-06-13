@@ -2,13 +2,13 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import crypto from 'crypto';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
-import listEndpoints from 'express-list-endpoints'
+import listEndpoints from 'express-list-endpoints';
 
-import petData from './data/pet_data.json'
+import petData from './data/pet_data.json';
 
-dotenv.config()
+dotenv.config();
 
 const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/petAPI';
 mongoose.connect(mongoUrl, {
@@ -24,20 +24,30 @@ const app = express();
 const petSchema = new mongoose.Schema({
   name: String,
   species: String,
-  breeds: String,
+  breeds: {
+    primary: String,
+    mixed: String,
+  },
   colors: String,
   age: String,
   gender: String,
   size: String,
   coat: String,
   attributes: String,
-  environment: String,
-  description: String,
-  primary_photo_cropped: String,
-  status: String
-})
+  environment: {
+    children: String,
+    dogs: String,
+    cats: String,
+  },
+  primary_photo_cropped: {
+    small: String,
+    medium: String,
+    large: String,
+    full: String,
+  },
+});
 
-const Pet = mongoose.model('Pet', petSchema)
+const Pet = mongoose.model('Pet', petSchema);
 
 if (process.env.RESET_DB) {
   const seedDB = async () => {
@@ -54,31 +64,54 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json(listEndpoints(app))
-})
+  res.json(listEndpoints(app));
+});
 
 // Get all the pets
 app.get('/pets', async (req, res) => {
-  const allPets = await Pet.find()
+  const { gender, size, age } = req.query;
+  const page = Number(req.query.page) || 1;
+  const per_page = Number(req.query.per_page) || 10;
 
-  res.json(allPets)
-})
+  const allPets = await Pet.aggregate([
+    {
+      $match: {
+        gender: {
+          $regex: new RegExp(gender || ''),
+        },
+        size: {
+          $regex: new RegExp(size || ''),
+        },
+        age: {
+          $regex: new RegExp(age || ''),
+        },
+      },
+    },
+    {
+      $skip: Number((page - 1) * per_page),
+    },
+    {
+      $limit: Number(per_page),
+    },
+  ]);
+  res.json(allPets);
+});
 
 // Get one pet by id (path parameter)
 app.get('/pets/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
-    const singlePet = await Pet.findById(id)
+    const singlePet = await Pet.findById(id);
     if (singlePet) {
-      res.json(singlePet)
+      res.json(singlePet);
     } else {
-      res.status(404).json({ message: 'Not found' })
+      res.status(404).json({ message: 'Not found' });
     }
   } catch (error) {
-    res.status(400).json({ message: 'Invalid request', error })
+    res.status(400).json({ message: 'Invalid request', error });
   }
-})
+});
 
 // Start the server
 app.listen(port, () => {
