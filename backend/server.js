@@ -94,7 +94,7 @@ app.get('/pets', async (req, res) => {
       $limit: Number(per_page),
     },
   ]);
-  res.json(allPets);
+  res.json({ success: true, allPets});
 });
 
 // Get one pet by id (path parameter)

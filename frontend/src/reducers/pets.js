@@ -3,15 +3,19 @@ import { createSlice } from '@reduxjs/toolkit'
 const pets = createSlice({
   name: 'pets',
   initialState: {
-    items: [],
-    likes: []
+    petData: [],
+    likes: [],
+    erros: []
   },
   reducers: {
     setPets: (store, action) => {
-      store.items = action.payload
+      store.petData = action.payload
     },
     setLikes: (store, action) => {
       store.likes = action.payload
+    },
+    setErrors: (store, action) => {
+      store.errors = action.payload
     }
   }
 })
