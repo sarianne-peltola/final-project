@@ -1,162 +1,70 @@
 [
   {
-    "id": 48555420,
-    "organization_id": "IL599",
-    "url": "https://www.petfinder.com/dog/ruff-48555420/il/batavia/starfish-animal-rescue-il599/?referrer_id=5957d654-0b8d-4a02-bbae-6c7dd49e1074",
-    "type": "Dog",
+    "petId": 1,
     "species": "Dog",
-    "breeds": {
-      "primary": "Terrier",
-      "mixed": "True"
-    },
-    "colors": "Brindle",
+    "breed": "mixed",
+    "colors": "White",
     "age": "Young",
-    "gender": "Male",
-    "size": "Small",
+    "gender": "Female",
+    "size": "Medium",
     "coat": "Short",
-    "attributes": "{'spayed_neutered': 'True', 'house_trained': 'True', 'declawed': 'None', 'special_needs': 'False', 'shots_current': 'True'}",
     "environment": {
       "children": "None",
       "dogs": "True",
       "cats": "None"
     },
-    "tags": [],
     "name": "Ruff",
-    "description": "Meet Ruff, Ruff is a smaller breed - probably around 10 lbs at  6-7  months old and a complete mix...",
-    "organization_animal_id": "None",
-    "photos": "[{'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/3/?bust=1595364733&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/3/?bust=1595364733&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/3/?bust=1595364733&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/3/?bust=1595364733'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/1/?bust=1595364732&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/1/?bust=1595364732&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/1/?bust=1595364732&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/1/?bust=1595364732'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/2/?bust=1595364733&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/2/?bust=1595364733&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/2/?bust=1595364733&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/2/?bust=1595364733'}]",
-    "primary_photo_cropped": {
-      "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/3/?bust=1595364733&width=300",
-      "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/3/?bust=1595364733&width=450",
-      "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/3/?bust=1595364733&width=600",
-      "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48555420/3/?bust=1595364733"
-    },
-    "videos": [],
-    "status": "adopted",
-    "status_changed_at": "2020-08-16 18:21:00+00:00",
-    "published_at": "2020-07-21 20:52:42+00:00",
-    "distance": "None",
-    "contact": "{'email': 'starfishanimalrescuer@gmail.com', 'phone': 'None', 'address': {'address1': 'Batavia', 'address2': 'None', 'city': 'Batavia', 'state': 'IL', 'postcode': '60510', 'country': 'US'}}",
-    "_links": "{'self': {'href': '/v2/animals/48555420'}, 'type': {'href': '/v2/types/dog'}, 'organization': {'href': '/v2/organizations/il599'}}"
+    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/v1623697326/final_project_pets/whitedog.jpg"
   },
   {
-    "id": 48549950,
-    "organization_id": "FL249",
-    "url": "https://www.petfinder.com/dog/delilah-48549950/fl/clermont/south-lake-animal-league-fl249/?referrer_id=5957d654-0b8d-4a02-bbae-6c7dd49e1074",
-    "type": "Dog",
+    "petId": 2,
     "species": "Dog",
-    "breeds": {
-      "primary": "German Shepherd Dog",
-      "mixed": "True"
-    },
-    "colors": "Black",
-    "age": "Adult",
-    "gender": "Female",
+    "breeds": "Border Collie",
+    "colors": "Black / White",
+    "age": "Senior",
+    "gender": "Male",
     "size": "Medium",
     "coat": "Medium",
-    "attributes": "{'spayed_neutered': 'True', 'house_trained': 'False', 'declawed': 'None', 'special_needs': 'False', 'shots_current': 'True'}",
-    "environment": {
-      "children": "None",
-      "dogs": "None",
-      "cats": "None"
-    },
-    "tags": [],
-    "name": "Delilah",
-    "description": "______ DOB/AGE: 07/10/2019 WEIGHT (GROWN):  55-60 lbs   I am currently in foster care, but very much adoptable.  You will need...",
-    "organization_animal_id": "None",
-    "photos": "[{'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48549950/1/?bust=1595337409&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48549950/1/?bust=1595337409&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48549950/1/?bust=1595337409&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48549950/1/?bust=1595337409'}]",
-    "primary_photo_cropped": {
-      "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48549950/1/?bust=1595337409&width=300",
-      "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48549950/1/?bust=1595337409&width=450",
-      "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48549950/1/?bust=1595337409&width=600",
-      "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48549950/1/?bust=1595337409"
-    },
-    "videos": [],
-    "status": "adopted",
-    "status_changed_at": "2020-07-31 01:39:20+00:00",
-    "published_at": "2020-07-21 13:17:11+00:00",
-    "distance": "None",
-    "contact": "{'email': 'adoptions@theanimalleague.org', 'phone': '(352) 429-6334', 'address': {'address1': '4648 Baptist Island Road', 'address2': 'Groveland FL 32736', 'city': 'Clermont', 'state': 'FL', 'postcode': '34712', 'country': 'US'}}",
-    "_links": "{'self': {'href': '/v2/animals/48549950'}, 'type': {'href': '/v2/types/dog'}, 'organization': {'href': '/v2/organizations/fl249'}}"
-  },
-  {
-    "id": 48550360,
-    "organization_id": "NC1092",
-    "url": "https://www.petfinder.com/dog/red-48550360/nc/raleigh/freedom-ride-rescue-nc1092/?referrer_id=5957d654-0b8d-4a02-bbae-6c7dd49e1074",
-    "type": "Dog",
-    "species": "Dog",
-    "breeds": {
-      "primary": "Dogue de Bordeaux",
-      "mixed": "True"
-    },
-    "colors": "Red / Chestnut / Orange",
-    "age": "Adult",
-    "gender": "Male",
-    "size": "Extra Large",
-    "coat": "None",
-    "attributes": "{'spayed_neutered': 'True', 'house_trained': 'False', 'declawed': 'None', 'special_needs': 'False', 'shots_current': 'True'}",
-    "environment": {
-      "children": "None",
-      "dogs": "None",
-      "cats": "None"
-    },
-    "tags": "['Does well in the car', 'Food Motivated', 'House Trained', 'Moderate Energy', 'Needs Training', 'No Cats', 'Owner Experience', 'Shy timid']",
-    "name": "Red",
-    "description": "Okay people, prepare yourself for this face. Meet big Red! Red is a French mastiff, whose heart is as big...",
-    "organization_animal_id": "FRR-A-411",
-    "photos": "[{'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/1/?bust=1597245026&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/1/?bust=1597245026&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/1/?bust=1597245026&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/1/?bust=1597245026'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/2/?bust=1597342229&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/2/?bust=1597342229&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/2/?bust=1597342229&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/2/?bust=1597342229'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/4/?bust=1597342227&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/4/?bust=1597342227&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/4/?bust=1597342227&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/4/?bust=1597342227'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/6/?bust=1597342227&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/6/?bust=1597342227&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/6/?bust=1597342227&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/6/?bust=1597342227'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/3/?bust=1597342226&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/3/?bust=1597342226&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/3/?bust=1597342226&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/3/?bust=1597342226'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/5/?bust=1597338624&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/5/?bust=1597338624&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/5/?bust=1597338624&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/5/?bust=1597338624'}]",
-    "primary_photo_cropped": {
-      "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/1/?bust=1597245026&width=300",
-      "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/1/?bust=1597245026&width=450",
-      "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/1/?bust=1597245026&width=600",
-      "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550360/1/?bust=1597245026"
-    },
-    "videos": [],
-    "status": "adoptable",
-    "status_changed_at": "2020-07-21 14:00:23+00:00",
-    "published_at": "2020-07-21 14:00:23+00:00",
-    "distance": "None",
-    "contact": "{'email': 'adopt@freedom-ride.org', 'phone': 'None', 'address': {'address1': 'None', 'address2': 'None', 'city': 'Raleigh', 'state': 'NC', 'postcode': '27604', 'country': 'US'}}",
-    "_links": "{'self': {'href': '/v2/animals/48550360'}, 'type': {'href': '/v2/types/dog'}, 'organization': {'href': '/v2/organizations/nc1092'}}"
-  },
-  {
-    "id": 48550730,
-    "organization_id": "KY519",
-    "url": "https://www.petfinder.com/dog/louie-48550730/oh/cincinnati/little-hills-of-kentucky-animal-rescue-inc-ky519/?referrer_id=5957d654-0b8d-4a02-bbae-6c7dd49e1074",
-    "type": "Dog",
-    "species": "Dog",
-    "breeds": {
-      "primary": "Labrador Retriever",
-      "mixed": "True"
-    },
-    "colors": "Not specified",
-    "age": "Young",
-    "gender": "Male",
-    "size": "Medium",
-    "coat": "None",
-    "attributes": "{'spayed_neutered': 'True', 'house_trained': 'True', 'declawed': 'None', 'special_needs': 'False', 'shots_current': 'True'}",
     "environment": {
       "children": "True",
       "dogs": "True",
       "cats": "True"
     },
-    "tags": [],
-    "name": "Louie",
-    "description": "Louie is 15 months old and 42 lbs. He is a German Shepherd/Black Mouth Curr mix. He is friendly and...",
-    "organization_animal_id": "None",
-    "photos": "[{'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/3/?bust=1595361932&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/3/?bust=1595361932&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/3/?bust=1595361932&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/3/?bust=1595361932'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/1/?bust=1595361739&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/1/?bust=1595361739&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/1/?bust=1595361739&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/1/?bust=1595361739'}, {'small': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/2/?bust=1595361743&width=100', 'medium': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/2/?bust=1595361743&width=300', 'large': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/2/?bust=1595361743&width=600', 'full': 'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/2/?bust=1595361743'}]",
-    "primary_photo_cropped": {
-      "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/3/?bust=1595361932&width=300",
-      "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/3/?bust=1595361932&width=450",
-      "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/3/?bust=1595361932&width=600",
-      "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48550730/3/?bust=1595361932"
+    "name": "Zac",
+    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/c_scale,w_350/v1623616453/final_project_pets/pic4_d91qj6.jpg"
+  },
+  {
+    "petId": 3,
+    "species": "Dog",
+    "breed": "Husky",
+    "colors": "Black / White",
+    "age": "Young",
+    "gender": "Female",
+    "size": "Large",
+    "coat": "Short",
+    "environment": {
+      "children": "None",
+      "dogs": "True",
+      "cats": "None"
     },
-    "videos": [],
-    "status": "adopted",
-    "status_changed_at": "2020-07-26 15:50:42+00:00",
-    "published_at": "2020-07-21 20:05:39+00:00",
-    "distance": "None",
-    "contact": "{'email': 'lhkyrescue@gmail.com', 'phone': 'None', 'address': {'address1': 'None', 'address2': 'None', 'city': 'Cincinnati', 'state': 'OH', 'postcode': '45211', 'country': 'US'}}",
-    "_links": "{'self': {'href': '/v2/animals/48550730'}, 'type': {'href': '/v2/types/dog'}, 'organization': {'href': '/v2/organizations/ky519'}}"
+    "name": "Lola",
+    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/v1623697871/final_project_pets/kt-35FPKt3Yko4-unsplash_1_z5uhbn.jpg"
+  },
+  {
+    "petId": 4,
+    "species": "Dog",
+    "breeds": "Golden Retriever",
+    "colors": "Golden",
+    "age": "Senior",
+    "gender": "Male",
+    "size": "Large",
+    "coat": "Medium",
+    "environment": {
+      "children": "True",
+      "dogs": "True",
+      "cats": "None"
+    },
+    "name": "Louie",
+    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/v1623616453/final_project_pets/pic3_pwpin3.jpg"
   }
 ]

@@ -27,7 +27,12 @@ const Main = () => {
 
   console.log(petData)
   return (
-    <div>All the pets stuff here</div>
+    <div>
+      {petData.map(pet => (
+      <img src={pet.photo} />
+    ))}
+    </div>
+    
   )
 }
 

@@ -10,6 +10,8 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 
+import PetDetail from './pages/PetDetail'
+
 const reducer = combineReducers({
   pets: pets.reducer,
   user: user.reducer,
@@ -24,6 +26,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path='/' component={Main} />
+          <Route path='/pets/:petId' component={PetDetail}/>
         </Switch>
         <Footer />
       </Provider>

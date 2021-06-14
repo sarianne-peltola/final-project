@@ -22,29 +22,21 @@ const port = process.env.PORT || 8080;
 const app = express();
 
 const petSchema = new mongoose.Schema({
+  petId: Number,
   name: String,
   species: String,
-  breeds: {
-    primary: String,
-    mixed: String,
-  },
+  breed: String,
   colors: String,
   age: String,
   gender: String,
   size: String,
   coat: String,
-  attributes: String,
   environment: {
     children: String,
     dogs: String,
     cats: String,
   },
-  primary_photo_cropped: {
-    small: String,
-    medium: String,
-    large: String,
-    full: String,
-  },
+  photo: String,
 });
 
 const Pet = mongoose.model('Pet', petSchema);
@@ -104,12 +96,12 @@ app.get('/pets/:id', async (req, res) => {
   try {
     const singlePet = await Pet.findById(id);
     if (singlePet) {
-      res.json(singlePet);
+      res.json({ success: true, singlePet });
     } else {
-      res.status(404).json({ message: 'Not found' });
+      res.status(404).json({ success: false, message: 'Not found' });
     }
   } catch (error) {
-    res.status(400).json({ message: 'Invalid request', error });
+    res.status(400).json({ success: false, message: 'Invalid request', error });
   }
 });
 

@@ -4,15 +4,15 @@ const pets = createSlice({
   name: 'pets',
   initialState: {
     petData: [],
-    likes: [],
-    erros: []
+    likedPets: [],
+    errors: []
   },
   reducers: {
     setPets: (store, action) => {
       store.petData = action.payload
     },
     setLikes: (store, action) => {
-      store.likes = action.payload
+      store.likedPets = action.payload
     },
     setErrors: (store, action) => {
       store.errors = action.payload
