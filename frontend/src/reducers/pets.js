@@ -12,7 +12,13 @@ const pets = createSlice({
       store.petData = action.payload
     },
     setLikes: (store, action) => {
-      store.likedPets = action.payload
+      if (store.likedPets.includes(action.payload)) {
+        const filterPet = store.likedPets.filter(pet => pet !== action.payload)
+        store.likedPets = filterPet
+      } else {
+        store.likedPets = [action.payload, ...store.likedPets]
+      }
+      
     },
     setErrors: (store, action) => {
       store.errors = action.payload

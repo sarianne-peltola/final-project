@@ -1,20 +1,27 @@
-import React from 'react'
+import React from 'react';
 
 const PetInfo = ({
-  petId,
   _id,
-  species,
   colors,
   age,
   gender,
   size,
   coat,
   name,
-  photo
+  photo,
 }) => {
   return (
-    <div>{name}</div>
-  )
-}
+    <div>
+      <img src={photo} alt='{name}' />
+      <i class="fas fa-heart"></i>
+      <h1>{name}</h1>
+      <p>Age: {age}</p>
+      <p>Gender: {gender}</p>
+      <p>Size: {size}</p>
+      <p>Coat: {coat}</p>
+      <p>Color: {colors}</p>
+    </div>
+  );
+};
 
 export default PetInfo;

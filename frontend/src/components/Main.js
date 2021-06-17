@@ -4,6 +4,7 @@ import { batch, useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../reusable/urls'
 
 import pets from '../reducers/pets'
+import PetListItems from './PetListItems'
 
 const Main = () => {
   const petData = useSelector(store => store.pets.petData)
@@ -29,7 +30,7 @@ const Main = () => {
   return (
     <div>
       {petData.map(pet => (
-      <img src={pet.photo} />
+      <PetListItems {...pet} />
     ))}
     </div>
     
