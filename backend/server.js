@@ -141,11 +141,6 @@ app.get('/pets/:id', async (req, res) => {
   }
 });
 
-app.get('/mypage', authenticateUser)
-app.get('/mypage', (req, res) => {
-  res.json('Does it work')
-})
-
 app.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -191,6 +186,16 @@ app.post('/login', async (req,res) => {
     res.status(400).json({ success: false, message: 'Invalid reqeust', error })
   }
 })
+
+
+app.get('/mypage', authenticateUser)
+app.get('/mypage', async (req, res) => {
+
+  const userDetails = await User.findOne({ accessToken: req.header('Authorization') })
+
+  res.json(userDetails)
+})
+
 
 app.listen(port, () => {
   // eslint-disable-next-line
