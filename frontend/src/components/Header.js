@@ -33,6 +33,9 @@ const Header = () => {
         )}
       </div>
       <div>
+        <Link to='/login'>
+        <i className="fas fa-user-circle"></i>
+        </Link>
         {accessToken && <button onClick={onButtonClick}>Logout</button>}
       </div>
     </header>

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { HeartFillIcon, MailIcon, KeyIcon } from '@primer/octicons-react';
 
 import { sign } from '../reducers/user';
 
 const Login = () => {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mode, setMode] = useState(null);
@@ -24,13 +25,12 @@ const Login = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(sign(email, password, mode));
+    dispatch(sign(name, email, password, mode));
   };
 
   return (
     <PageWrapper>
-      <h1>Welcome to SecretMessage!</h1>
-      <h2>Please log in or register as a user</h2>
+      <h2>Log in to your account</h2>
       <Form onSubmit={onFormSubmit}>
         <Wrapper>
           <Container>
@@ -62,12 +62,10 @@ const Login = () => {
           <Button type='submit' onClick={() => setMode('login')}>
             Sign in
           </Button>
-          <Button type='submit' onClick={() => setMode('signup')}>
-            Register
-          </Button>
         </ButtonWrapper>
       </Form>
       {errors && <div>{errors.message}</div>}
+      <Link to='/signup'>No account yet? Sign up here</Link>
     </PageWrapper>
   );
 };

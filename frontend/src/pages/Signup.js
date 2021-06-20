@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { HeartFillIcon, MailIcon, KeyIcon } from '@primer/octicons-react';
 
@@ -30,8 +30,7 @@ const Signup = () => {
 
   return (
     <PageWrapper>
-      <h1>Welcome to SecretMessage!</h1>
-      <h2>Please log in or register as a user</h2>
+      <h2>Register as a user</h2>
       <Form onSubmit={onFormSubmit}>
       <Wrapper>
           <Container>
@@ -85,6 +84,7 @@ const Signup = () => {
           </Button>
         </ButtonWrapper>
       </Form>
+      <Link to='/login'>Already an account? Sign in here</Link>
       {errors && <div>{errors.message}</div>}
     </PageWrapper>
   )
