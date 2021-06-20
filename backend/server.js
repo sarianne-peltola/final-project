@@ -54,28 +54,28 @@ const User = mongoose.model('User', {
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   accessToken: {
     type: String,
     default: () => crypto.randomBytes(128).toString('hex'),
-  }
-})
+  },
+});
 
 const authenticateUser = async (req, res, next) => {
-  const accessToken = req.header('Authorization')
+  const accessToken = req.header('Authorization');
 
   try {
-    const user = await User.findOne({ accessToken })
+    const user = await User.findOne({ accessToken });
     if (user) {
-      next()
+      next();
     } else {
-      res.status(401).json({ message: 'Not authorized' })
+      res.status(401).json({ message: 'Not authorized' });
     }
   } catch (error) {
-    res.status(400).json({ message: 'Invalid request', error })
+    res.status(400).json({ message: 'Invalid request', error });
   }
-}
+};
 
 if (process.env.RESET_DB) {
   const seedDB = async () => {
@@ -122,7 +122,7 @@ app.get('/pets', async (req, res) => {
       $limit: Number(per_page),
     },
   ]);
-  res.json({ success: true, allPets});
+  res.json({ success: true, allPets });
 });
 
 // Get one pet by id (path parameter)
@@ -145,57 +145,60 @@ app.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    const salt = bcrypt.genSaltSync()
+    const salt = bcrypt.genSaltSync();
 
     const newUser = await new User({
       name,
       email,
-      password: bcrypt.hashSync(password, salt)
-    }).save()
+      password: bcrypt.hashSync(password, salt),
+    }).save();
 
     res.json({
       success: true,
       userID: newUser._id,
       name: newUser.name,
       email: newUser.email,
-      accessToken: newUser.accessToken
-    })
+      accessToken: newUser.accessToken,
+    });
   } catch (error) {
-    res.status(400).json({ success: false, message: 'Invalid request, cannot create user', error })
+    res
+      .status(400)
+      .json({
+        success: false,
+        message: 'Invalid request, cannot create user',
+        error,
+      });
   }
-})
+});
 
-app.post('/login', async (req,res) => {
-  const { email, password } = req.body
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
 
   try {
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ email });
 
     if (user && bcrypt.compareSync(password, user.password)) {
       res.json({
         success: true,
         userID: user._id,
-        name: user.name,
         email: user.email,
-        accessToken: user.accessToken
-      })
+        accessToken: user.accessToken,
+      });
     } else {
-      res.status(404).json({ success: false, message: "User not found" })
+      res.status(404).json({ success: false, message: 'User not found' });
     }
   } catch (error) {
-    res.status(400).json({ success: false, message: 'Invalid reqeust', error })
+    res.status(400).json({ success: false, message: 'Invalid reqeust', error });
   }
-})
+});
 
-
-app.get('/mypage', authenticateUser)
+app.get('/mypage', authenticateUser);
 app.get('/mypage', async (req, res) => {
-
-  const userDetails = await User.findOne({ accessToken: req.header('Authorization') })
-
-  res.json(userDetails)
-})
-
+  const userDetails = await User.findOne({
+    accessToken: req.header('Authorization'),
+  });
+  res.json(userDetails);
+});
 
 app.listen(port, () => {
   // eslint-disable-next-line

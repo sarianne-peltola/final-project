@@ -9,6 +9,9 @@ import user from './reducers/user';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import MyPage from './pages/MyPage'
 
 import PetDetail from './pages/PetDetail'
 
@@ -27,6 +30,9 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Main} />
           <Route path='/pets/:petId' component={PetDetail}/>
+          <Route path='/login' component={Login} />
+          <Route path='/signup' component={Signup} />
+          <Route path='/mypage' component={MyPage} />
         </Switch>
         <Footer />
       </Provider>

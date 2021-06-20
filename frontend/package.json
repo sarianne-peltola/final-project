@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@primer/components": "^28.2.0",
+    "@primer/octicons-react": "^14.2.2",
     "@reduxjs/toolkit": "^1.5.1",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.1",
