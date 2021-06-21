@@ -39,9 +39,7 @@ const petSchema = new mongoose.Schema({
   photo: String,
 });
 
-const Pet = mongoose.model('Pet', petSchema);
-
-const User = mongoose.model('User', {
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -62,14 +60,35 @@ const User = mongoose.model('User', {
   },
 });
 
-const PetMessage = mongoose.model('PetMessage', {
+const PetMessageSchema = new mongoose.Schema({
+  userName: {
+    type: String,
+    required: true,
+    maxlenght: 20,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  petName: {
+    type: String,
+    required: true,
+    maxlenght: 20,
+  },
   message: {
     type: String,
     required: true,
     maxlenght: 250,
     minlenght: 5,
-  }
-})
+  },
+});
+
+const Pet = mongoose.model('Pet', petSchema);
+
+const User = mongoose.model('User', UserSchema);
+
+const PetMessage = mongoose.model('PetMessage', PetMessageSchema);
 
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header('Authorization');
@@ -170,13 +189,11 @@ app.post('/signup', async (req, res) => {
       accessToken: newUser.accessToken,
     });
   } catch (error) {
-    res
-      .status(400)
-      .json({
-        success: false,
-        message: 'Invalid request, cannot create user',
-        error,
-      });
+    res.status(400).json({
+      success: false,
+      message: 'Invalid request, cannot create user',
+      error,
+    });
   }
 });
 
@@ -209,18 +226,22 @@ app.get('/mypage', async (req, res) => {
   res.json(userDetails);
 });
 
-app.get('/interest', authenticateUser)
+app.post('/interest', authenticateUser);5
 app.post('/interest', async (req, res) => {
-  const { message } = req.body
+  const { userName, email, petName, message } = req.body;
 
   try {
-    const newMessage = await new PetMessage({ message }).save()
-    res.json({ success: true, newMessage});
+    const newMessage = await new PetMessage({
+      userName,
+      email,
+      petName,
+      message,
+    }).save();
+    res.json({ success: true, userName, email, petName, message });
   } catch (error) {
     res.status(400).json({ success: false, message: 'Invalid request', error });
   }
 });
-
 
 app.listen(port, () => {
   // eslint-disable-next-line

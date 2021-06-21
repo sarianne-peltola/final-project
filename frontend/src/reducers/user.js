@@ -9,14 +9,14 @@ const initialState = localStorage.getItem('user')
       email: JSON.parse(localStorage.getItem('user')).email,
       accessToken: JSON.parse(localStorage.getItem('user')).accessToken,
       errors: null,
-      interestPet: null,
+      interestPet: [],
     }
   : {
       name: null,
       email: null,
       accessToken: null,
       errors: null,
-      IntersectionObserver: null,
+      interestPet: [],
     };
 
 const user = createSlice({
@@ -36,7 +36,7 @@ const user = createSlice({
       store.errors = action.payload;
     },
     setInterestPet: (store, action) => {
-      store.interestPet = action.payload
+      store.interestPet = [action.payload, ...store.interestPet]
     }
   },
 });
@@ -77,21 +77,21 @@ export const sign = (name, email, password, mode) => {
   };
 };
 
-export const interestMessage = (name, email, message, mode) => {
+export const interestMessage = (userName, email, petName, message, mode) => {
   return (dispatch, getStore) => {
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ userName, email, petName, message }),
     };
 
     fetch(API_URL(mode), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-            dispatch(user.actions.setInterestPet(data._id));
+            dispatch(user.actions.setInterestPet(data.petName));
             dispatch(user.actions.setErrors(null));
         } else {
           dispatch(user.actions.setErrors(data));
