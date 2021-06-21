@@ -36,8 +36,8 @@ const user = createSlice({
       store.errors = action.payload;
     },
     setInterestPet: (store, action) => {
-      store.interestPet = [action.payload, ...store.interestPet]
-    }
+      store.interestPet = [action.payload, ...store.interestPet];
+    },
   },
 });
 
@@ -77,22 +77,31 @@ export const sign = (name, email, password, mode) => {
   };
 };
 
-export const interestMessage = (userName, email, petName, message, mode) => {
+export const interestMessage = (
+  accessToken,
+  userName,
+  email,
+  petId,
+  petName,
+  message,
+  mode
+) => {
   return (dispatch, getStore) => {
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: accessToken,
       },
-      body: JSON.stringify({ userName, email, petName, message }),
+      body: JSON.stringify({ userName, email, petId, petName, message }),
     };
 
     fetch(API_URL(mode), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-            dispatch(user.actions.setInterestPet(data.petName));
-            dispatch(user.actions.setErrors(null));
+          dispatch(user.actions.setInterestPet(data.petName));
+          dispatch(user.actions.setErrors(null));
         } else {
           dispatch(user.actions.setErrors(data));
         }

@@ -71,6 +71,10 @@ const PetMessageSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  petId: {
+    type: String,
+    required: true,
+  },
   petName: {
     type: String,
     required: true,
@@ -206,6 +210,7 @@ app.post('/login', async (req, res) => {
     if (user && bcrypt.compareSync(password, user.password)) {
       res.json({
         success: true,
+        name: user.name,
         userID: user._id,
         email: user.email,
         accessToken: user.accessToken,
@@ -226,18 +231,19 @@ app.get('/mypage', async (req, res) => {
   res.json(userDetails);
 });
 
-app.post('/interest', authenticateUser);5
+app.post('/interest', authenticateUser);
 app.post('/interest', async (req, res) => {
-  const { userName, email, petName, message } = req.body;
+  const { userName, email, petId, petName, message } = req.body;
 
   try {
     const newMessage = await new PetMessage({
       userName,
       email,
+      petId,
       petName,
       message,
     }).save();
-    res.json({ success: true, userName, email, petName, message });
+    res.json({ success: true, userName, email, petId, petName, message });
   } catch (error) {
     res.status(400).json({ success: false, message: 'Invalid request', error });
   }

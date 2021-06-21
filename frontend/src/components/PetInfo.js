@@ -27,7 +27,7 @@ const PetInfo = ({ _id, colors, age, gender, size, coat, name, photo }) => {
       </div>
       <div>
         <h2>Think you and {name} might be a match?</h2>
-        <Link to={{pathname:'/interest', propsName:{name}}}><button>Introduce myself</button></Link>
+        <Link to={{pathname:'/interest', propsName: name, propsId: _id }}><button>Introduce myself</button></Link>
       </div>
     </div>
   );
