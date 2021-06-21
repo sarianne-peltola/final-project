@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import pets from '../reducers/pets';
+import user from '../reducers/user';
 
 const PetInfo = ({ _id, colors, age, gender, size, coat, name, photo }) => {
   const dispatch = useDispatch();
 
   const handleLikedPet = (_id) => {
-    dispatch(pets.actions.setLikes(_id));
+    dispatch(user.actions.setLikes(_id));
   };
 
   return (
@@ -27,7 +27,7 @@ const PetInfo = ({ _id, colors, age, gender, size, coat, name, photo }) => {
       </div>
       <div>
         <h2>Think you and {name} might be a match?</h2>
-        <Link to={{pathname:'/interest', propsName: name, propsId: _id }}><button>Introduce myself</button></Link>
+        <Link to={{ pathname:`/pets/${_id}/interest`, propsName: name }}><button>Introduce myself</button></Link>
       </div>
     </div>
   );

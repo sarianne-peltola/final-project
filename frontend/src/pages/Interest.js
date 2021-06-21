@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { interestMessage } from '../reducers/user';
 
 const Interest = (props) => {
+  const { petId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const accessToken = useSelector((store) => store.user.accessToken);
   const userName = useSelector((store) => store.user.name);
   const email = useSelector((store) => store.user.email);
-  const [mode, setMode] = useState(null);
   const petName = props.location.propsName;
-  const petId = props.location.propsId;
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -23,14 +23,14 @@ const Interest = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(interestMessage(accessToken, userName, email, petId, petName, message, mode));
+    dispatch(interestMessage(accessToken, userName, email, petId, petName, message));
     setMessage('')
   };
 
   return (
     <form onSubmit={onFormSubmit}>
       <label htmlFor='message'>
-        Tell us about yourself why you are interested in adopting {petName}
+        Tell us about yourself why are you interested in adopting {petName}?
       </label>
       <textarea
         id='message'
@@ -44,7 +44,7 @@ const Interest = (props) => {
       <div>
         <p>{message.length}/250</p>
       </div>
-      <button type='submit' onClick={() => setMode('interest')}>
+      <button type='submit'>
         Send
       </button>
     </form>

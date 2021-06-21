@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import pets from '../reducers/pets';
+import user from '../reducers/user';
 
 const PetListItems = ({ _id, name, photo, gender }) => {
   const dispatch = useDispatch();
 
   const handleLikedPet = (_id) => {
-    dispatch(pets.actions.setLikes(_id));
+    dispatch(user.actions.setLikes(_id));
   };
 
   return (

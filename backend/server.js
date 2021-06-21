@@ -58,6 +58,8 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: () => crypto.randomBytes(128).toString('hex'),
   },
+  interestPet: [String],
+  likedPets: [String],
 });
 
 const PetMessageSchema = new mongoose.Schema({
@@ -214,6 +216,8 @@ app.post('/login', async (req, res) => {
         userID: user._id,
         email: user.email,
         accessToken: user.accessToken,
+        interestPet: user.interestPet,
+        likedPets: user.likedPets
       });
     } else {
       res.status(404).json({ success: false, message: 'User not found' });
@@ -231,8 +235,8 @@ app.get('/mypage', async (req, res) => {
   res.json(userDetails);
 });
 
-app.post('/interest', authenticateUser);
-app.post('/interest', async (req, res) => {
+app.post('/pets/:id/interest', authenticateUser);
+app.post('/pets/:id/interest', async (req, res) => {
   const { userName, email, petId, petName, message } = req.body;
 
   try {
@@ -246,6 +250,24 @@ app.post('/interest', async (req, res) => {
     res.json({ success: true, userName, email, petId, petName, message });
   } catch (error) {
     res.status(400).json({ success: false, message: 'Invalid request', error });
+  }
+});
+
+app.patch('/pets/:id/interest', async (req, res) => {
+  const { id } = req.params;
+  const { _id } = req.body;
+
+  try {
+    const updateInterest = await User.findByIdAndUpdate(_id, {
+      interestPet: id,
+    });
+    if (updateInterest) {
+      res.json(updateInterest);
+    } else {
+      res.status(404).json({ message: 'Not found' });
+    }
+  } catch (error) {
+    res.status(400).json({ message: 'Invalid request', error });
   }
 });
 

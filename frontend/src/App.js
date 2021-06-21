@@ -30,11 +30,11 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path='/' component={Main} />
-          <Route path='/pets/:petId' component={PetDetail}/>
+          <Route exact path='/pets/:petId' component={PetDetail}/>
           <Route path='/login' component={Login} />
           <Route path='/signup' component={Signup} />
           <Route path='/mypage' component={MyPage} />
-          <Route path='/interest' component={Interest} />
+          <Route exact path='/pets/:petId/interest' component={Interest} />
         </Switch>
         <Footer />
       </Provider>

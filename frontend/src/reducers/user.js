@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { batch } from 'react-redux';
 
 import { API_URL } from '../reusable/urls';
+import { PET_URL } from '../reusable/urls';
 
 const initialState = localStorage.getItem('user')
   ? {
@@ -10,6 +11,7 @@ const initialState = localStorage.getItem('user')
       accessToken: JSON.parse(localStorage.getItem('user')).accessToken,
       errors: null,
       interestPet: [],
+      likedPets: []
     }
   : {
       name: null,
@@ -17,6 +19,7 @@ const initialState = localStorage.getItem('user')
       accessToken: null,
       errors: null,
       interestPet: [],
+      likedPets: []
     };
 
 const user = createSlice({
@@ -38,7 +41,15 @@ const user = createSlice({
     setInterestPet: (store, action) => {
       store.interestPet = [action.payload, ...store.interestPet];
     },
-  },
+    setLikes: (store, action) => {
+      if (store.likedPets.includes(action.payload)) {
+        const filterPet = store.likedPets.filter(pet => pet !== action.payload)
+        store.likedPets = filterPet
+      } else {
+        store.likedPets = [action.payload, ...store.likedPets]
+      }
+    },
+  }
 });
 
 export const sign = (name, email, password, mode) => {
@@ -60,6 +71,7 @@ export const sign = (name, email, password, mode) => {
             dispatch(user.actions.setEmail(data.email));
             dispatch(user.actions.setAccessToken(data.accessToken));
             dispatch(user.actions.setErrors(null));
+            dispatch(user.actions.setInterestPet(data.interestPet))
 
             localStorage.setItem(
               'user',
@@ -83,8 +95,7 @@ export const interestMessage = (
   email,
   petId,
   petName,
-  message,
-  mode
+  message
 ) => {
   return (dispatch, getStore) => {
     const options = {
@@ -96,16 +107,17 @@ export const interestMessage = (
       body: JSON.stringify({ userName, email, petId, petName, message }),
     };
 
-    fetch(API_URL(mode), options)
+    fetch(PET_URL(petId), options)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          dispatch(user.actions.setInterestPet(data.petName));
+          dispatch(user.actions.setInterestPet(data.petId));
           dispatch(user.actions.setErrors(null));
         } else {
           dispatch(user.actions.setErrors(data));
         }
       });
+
   };
 };
 
