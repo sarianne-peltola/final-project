@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
-import { HeartFillIcon, MailIcon, KeyIcon } from '@primer/octicons-react';
+import { MailIcon, KeyIcon } from '@primer/octicons-react';
 
 import { sign } from '../reducers/user';
 
 const Login = () => {
-  const [name, setName] = useState('')
+  const name = '';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mode, setMode] = useState(null);
@@ -107,22 +107,6 @@ const Container = styled.div`
   }
 `;
 
-const Heart = styled(HeartFillIcon)`
-  position: absolute;
-  top: 50%;
-  left: 16px;
-  right: initial;
-  transform: translateY(-50%);
-  color: #505050;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-`;
-
 const Mail = styled(MailIcon)`
   position: absolute;
   top: 50%;
@@ -205,33 +189,6 @@ const Label = styled.label`
   text-decoration: inherit;
   text-transform: inherit;
   z-index: -1;
-`;
-
-const CountLine = styled.div`
-  display: flex;
-  padding-top: 5px;
-  padding-right: 16px;
-  padding-left: 16px;
-  justify-content: space-between;
-  box-sizing: border-box;
-`;
-
-const CharCount = styled.div`
-  color: rgba(0, 0, 0, 0.6);
-  font-family: Roboto, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.0333333333em;
-  text-decoration: inherit;
-  text-transform: inherit;
-  display: block;
-  margin-top: 0;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: 0;
-  padding-left: 16px;
-  padding-right: 0;
-  white-space: nowrap;
 `;
 
 const ButtonWrapper = styled.div`

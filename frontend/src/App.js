@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import MyPage from './pages/MyPage'
+import Interest from './pages/Interest'
 
 import PetDetail from './pages/PetDetail'
 
@@ -33,6 +34,7 @@ const App = () => {
           <Route path='/login' component={Login} />
           <Route path='/signup' component={Signup} />
           <Route path='/mypage' component={MyPage} />
+          <Route path='/interest' component={Interest} />
         </Switch>
         <Footer />
       </Provider>

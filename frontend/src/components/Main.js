@@ -24,13 +24,12 @@ const Main = () => {
         dispatch(pets.actions.setErrors(data))
       }
     })
-  }, [])
+  }, [dispatch])
 
-  console.log(petData)
   return (
     <div>
       {petData.map(pet => (
-      <PetListItems {...pet} />
+      <PetListItems {...pet} key={pet._id} />
     ))}
     </div>
     
