@@ -62,6 +62,15 @@ const User = mongoose.model('User', {
   },
 });
 
+const PetMessage = mongoose.model('PetMessage', {
+  message: {
+    type: String,
+    required: true,
+    maxlenght: 250,
+    minlenght: 5,
+  }
+})
+
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header('Authorization');
 
@@ -199,6 +208,19 @@ app.get('/mypage', async (req, res) => {
   });
   res.json(userDetails);
 });
+
+app.get('/interest', authenticateUser)
+app.post('/interest', async (req, res) => {
+  const { message } = req.body
+
+  try {
+    const newMessage = await new PetMessage({ message }).save()
+    res.json({ success: true, newMessage});
+  } catch (error) {
+    res.status(400).json({ success: false, message: 'Invalid request', error });
+  }
+});
+
 
 app.listen(port, () => {
   // eslint-disable-next-line
