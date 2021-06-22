@@ -14,6 +14,8 @@ const Header = () => {
       dispatch(user.actions.setAccessToken(null));
       dispatch(user.actions.setName(null));
       dispatch(user.actions.setEmail(null));
+      dispatch(user.actions.setUserID(null))
+      dispatch(user.actions.setInterestPet(null))
 
       localStorage.removeItem('user');
     });

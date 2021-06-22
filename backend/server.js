@@ -40,6 +40,7 @@ const petSchema = new mongoose.Schema({
 });
 
 const UserSchema = new mongoose.Schema({
+  userID: String,
   name: {
     type: String,
     required: true,
@@ -58,7 +59,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: () => crypto.randomBytes(128).toString('hex'),
   },
-  interestPet: [String],
+  interestPet: String,
   likedPets: [String],
 });
 
@@ -217,7 +218,7 @@ app.post('/login', async (req, res) => {
         email: user.email,
         accessToken: user.accessToken,
         interestPet: user.interestPet,
-        likedPets: user.likedPets
+        likedPets: user.likedPets,
       });
     } else {
       res.status(404).json({ success: false, message: 'User not found' });
@@ -253,21 +254,23 @@ app.post('/pets/:id/interest', async (req, res) => {
   }
 });
 
+app.patch('/pets/:id/interest', authenticateUser);
 app.patch('/pets/:id/interest', async (req, res) => {
   const { id } = req.params;
-  const { _id } = req.body;
+  const { userID } = req.body;
 
   try {
-    const updateInterest = await User.findByIdAndUpdate(_id, {
+    const updateInterest = await User.findByIdAndUpdate(userID, {
       interestPet: id,
     });
     if (updateInterest) {
-      res.json(updateInterest);
+      res.json({ success: true, updateInterest });
+      console.log(updateInterest)
     } else {
       res.status(404).json({ message: 'Not found' });
     }
   } catch (error) {
-    res.status(400).json({ message: 'Invalid request', error });
+    res.status(400).json({ success: false, message: 'Invalid request', error });
   }
 });
 
