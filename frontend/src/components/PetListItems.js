@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 import user from '../reducers/user';
 
 const PetListItems = ({ _id, name, photo, gender }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const accessToken = useSelector((store) => store.user.accessToken);
 
   const handleLikedPet = (_id) => {
-    dispatch(user.actions.setLikes(_id));
+      if (!accessToken) {
+        history.push('/login');
+      } else {
+        dispatch(user.actions.setLikes(_id));
+      }
   };
 
   return (
