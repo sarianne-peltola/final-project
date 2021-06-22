@@ -6,7 +6,16 @@ import styled from 'styled-components/macro';
 
 import user from '../reducers/user';
 
-const PetInfo = ({ _id, breed, age, gender, size, name, photo }) => {
+const PetInfo = ({
+  _id,
+  breed,
+  age,
+  gender,
+  size,
+  name,
+  photo,
+  description,
+}) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -40,22 +49,23 @@ const PetInfo = ({ _id, breed, age, gender, size, name, photo }) => {
             <AgeText>{age}</AgeText>
           </Age>
         </Flex>
-        <FlexLast>
-          <div>
+        <Flex>
+          <Description>{description}</Description>
+          <SizeFlex>
             <i className='fas fa-paw fa-sm'></i>
             <i className='fas fa-paw fa-lg'></i>
-          </div>
-          <Size>{size}</Size>
-        </FlexLast>
+            <Size>{size}</Size>
+          </SizeFlex>
+        </Flex>
       </InfoWrapper>
-      <div>
+      <EndWrapper>
         <Heart onClick={() => handleLikedPet(_id)}>
           <i className='fas fa-heart'></i>
         </Heart>
         <Link to={{ pathname: `/pets/${_id}/interest`, propsName: name }}>
           <Adoption>Adoption</Adoption>
         </Link>
-      </div>
+      </EndWrapper>
     </Container>
   );
 };
@@ -111,7 +121,7 @@ const Breed = styled.p`
   font-size: 18px;
 `;
 
-const Age = styled.p`
+const Age = styled.div`
   color: #787878;
   margin: 5px 0 0 0;
   font-size: 15px;
@@ -122,16 +132,20 @@ const AgeText = styled.p`
   margin: 0 0 0 5px;
 `;
 
-const FlexLast = styled.div`
-  display: flex;
-  margin: 0 0 10px 0;
+const Description = styled.p`
   color: #787878;
-  justify-content: flex-end;
-  font-size: 15x;
+  margin: 5px 0;
+  font-size: 14px;
+`;
+
+const SizeFlex = styled.div`
+  display: flex;
+  color: #787878;
+  font-size: 14px;
 `;
 
 const Size = styled.p`
-  margin: 0 0 0 5px;
+  margin: 5px 0 0 5px;
 `;
 
 const Heart = styled.button`
@@ -140,15 +154,22 @@ const Heart = styled.button`
   width: 40px;
   height: 40px;
   border: 1px solid #bebebed0;
-`
+`;
 
 const Adoption = styled.button`
   border-radius: 20px;
   border: none;
-  background-color: #FBCE56;
+  background-color: #fbce56;
   padding: 12px;
   width: 230px;
   margin: 15px;
-`
+  font-weight: bold;
+  color: #656565;
+`;
+
+const EndWrapper = styled.div`
+  position: relative;
+  top: -15px;
+`;
 
 export default PetInfo;

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 
 import user from '../reducers/user';
 
-const PetListItems = ({ _id, name, photo, gender }) => {
+const PetListItems = ({ _id, name, photo }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const accessToken = useSelector((store) => store.user.accessToken);
