@@ -19,7 +19,7 @@
   {
     "petId": 2,
     "species": "Dog",
-    "breeds": "Border Collie",
+    "breed": "Border Collie",
     "colors": "Black / White",
     "age": "Senior",
     "gender": "Male",
@@ -31,7 +31,7 @@
       "cats": "True"
     },
     "name": "Zac",
-    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/c_scale,w_350/v1623616453/final_project_pets/pic4_d91qj6.jpg"
+    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/v1624385568/final_project_pets/tadeusz-lakota-rR5MvBcjmMA-unsplash_hmbgs6.jpg"
   },
   {
     "petId": 3,
@@ -48,7 +48,7 @@
       "cats": "None"
     },
     "name": "Lola",
-    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/v1623697871/final_project_pets/kt-35FPKt3Yko4-unsplash_1_z5uhbn.jpg"
+    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/v1624384322/final_project_pets/kt-35FPKt3Yko4-unsplash_1_z5uhbn.jpg"
   },
   {
     "petId": 4,
@@ -65,6 +65,6 @@
       "cats": "None"
     },
     "name": "Louie",
-    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/v1623616453/final_project_pets/pic3_pwpin3.jpg"
+    "photo": "https://res.cloudinary.com/ddrrc7zzq/image/upload/v1624385027/final_project_pets/emily-rusch-1dY56Hsebg0-unsplash_vbtehm.jpg"
   }
 ]

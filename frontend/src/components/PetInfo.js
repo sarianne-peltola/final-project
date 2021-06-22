@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import styled from 'styled-components/macro';
 
 import user from '../reducers/user';
 
-const PetInfo = ({ _id, colors, age, gender, size, coat, name, photo }) => {
+const PetInfo = ({ _id, breed, age, gender, size, name, photo }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const accessToken = useSelector((store) => store.user.accessToken);
@@ -19,27 +20,135 @@ const PetInfo = ({ _id, colors, age, gender, size, coat, name, photo }) => {
   };
 
   return (
-    <div>
+    <Container>
+      <ProfileImage background={photo}></ProfileImage>
+      <InfoWrapper>
+        <Flex>
+          <Header>{name}</Header>
+          <Symbol>
+            {gender === 'Male' ? (
+              <i className='fas fa-mars'></i>
+            ) : (
+              <i className='fas fa-venus'></i>
+            )}
+          </Symbol>
+        </Flex>
+        <Flex>
+          <Breed>{breed}</Breed>
+          <Age>
+            <i className='far fa-clock'></i>
+            <AgeText>{age}</AgeText>
+          </Age>
+        </Flex>
+        <FlexLast>
+          <div>
+            <i className='fas fa-paw fa-sm'></i>
+            <i className='fas fa-paw fa-lg'></i>
+          </div>
+          <Size>{size}</Size>
+        </FlexLast>
+      </InfoWrapper>
       <div>
-        <img src={photo} alt='{name}' />
-        <button onClick={() => handleLikedPet(_id)}>
+        <Heart onClick={() => handleLikedPet(_id)}>
           <i className='fas fa-heart'></i>
-        </button>
-        <h1>{name}</h1>
-        <p>Age: {age}</p>
-        <p>Gender: {gender}</p>
-        <p>Size: {size}</p>
-        <p>Coat: {coat}</p>
-        <p>Color: {colors}</p>
-      </div>
-      <div>
-        <h2>Think you and {name} might be a match?</h2>
+        </Heart>
         <Link to={{ pathname: `/pets/${_id}/interest`, propsName: name }}>
-          <button>Introduce myself</button>
+          <Adoption>Adoption</Adoption>
         </Link>
       </div>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ProfileImage = styled.div`
+  width: 100%;
+  height: 75vh;
+  background-image: ${(props) => `url(${props.background})`};
+  background-size: cover;
+  z-index: -1;
+  position: relative;
+  top: -45px;
+  background-position: center;
+`;
+
+const InfoWrapper = styled.div`
+  box-shadow: 5px 11px 20px 0px #e2e2e2;
+  border-radius: 20px;
+  padding: 18px 18px 18px 25px;
+  width: 75%;
+  position: relative;
+  top: -80px;
+  background-color: #fff;
+`;
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px 0;
+`;
+
+const Header = styled.h1`
+  color: #787878;
+  margin: 0;
+`;
+
+const Symbol = styled.p`
+  color: #787878;
+  margin: 5px 0 0 0;
+  padding: 0 15px;
+  font-size: 24px;
+`;
+
+const Breed = styled.p`
+  color: #787878;
+  margin: 5px 0;
+  font-size: 18px;
+`;
+
+const Age = styled.p`
+  color: #787878;
+  margin: 5px 0 0 0;
+  font-size: 15px;
+  display: flex;
+`;
+
+const AgeText = styled.p`
+  margin: 0 0 0 5px;
+`;
+
+const FlexLast = styled.div`
+  display: flex;
+  margin: 0 0 10px 0;
+  color: #787878;
+  justify-content: flex-end;
+  font-size: 15x;
+`;
+
+const Size = styled.p`
+  margin: 0 0 0 5px;
+`;
+
+const Heart = styled.button`
+  background-color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #bebebed0;
+`
+
+const Adoption = styled.button`
+  border-radius: 20px;
+  border: none;
+  background-color: #FBCE56;
+  padding: 12px;
+  width: 230px;
+  margin: 15px;
+`
 
 export default PetInfo;
