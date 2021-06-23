@@ -1,8 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Mulish', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-user-circle {
+  font-size: 20px;
+}
+
+.fa-sign-out-alt {
+  font-size: 20px;
+}
+
+.fa-arrow-left {
+  padding: 5px;
 }
 
 .fa-clock {

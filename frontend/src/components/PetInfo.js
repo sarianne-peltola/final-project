@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -19,18 +19,24 @@ const PetInfo = ({
   const dispatch = useDispatch();
   const history = useHistory();
   const accessToken = useSelector((store) => store.user.accessToken);
+  const [isActive, setIsActive] = useState(false);
 
   const handleLikedPet = (_id) => {
     if (!accessToken) {
       history.push('/login');
     } else {
       dispatch(user.actions.setLikes(_id));
+      setIsActive(!isActive);
     }
   };
 
   return (
     <Container>
-      <ProfileImage background={photo}></ProfileImage>
+      <ProfileImage background={photo}>
+          <BackLink className='back-link' to='/'>
+            <i className='fas fa-arrow-left'></i>
+          </BackLink>
+      </ProfileImage>
       <InfoWrapper>
         <Flex>
           <Header>{name}</Header>
@@ -59,9 +65,15 @@ const PetInfo = ({
         </Flex>
       </InfoWrapper>
       <EndWrapper>
-        <Heart onClick={() => handleLikedPet(_id)}>
-          <i className='fas fa-heart'></i>
-        </Heart>
+        {isActive ? (
+          <HeartActive onClick={() => handleLikedPet(_id)}>
+            <i className='fas fa-heart'></i>
+          </HeartActive>
+        ) : (
+          <Heart onClick={() => handleLikedPet(_id)}>
+            <i className='fas fa-heart'></i>
+          </Heart>
+        )}
         <Link to={{ pathname: `/pets/${_id}/interest`, propsName: name }}>
           <Adoption>Adoption</Adoption>
         </Link>
@@ -81,11 +93,22 @@ const ProfileImage = styled.div`
   height: 75vh;
   background-image: ${(props) => `url(${props.background})`};
   background-size: cover;
-  z-index: -1;
   position: relative;
-  top: -45px;
   background-position: center;
 `;
+
+const BackLink = styled(Link)`
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  background-color:  #fbce5699;
+  color: #000;
+`
 
 const InfoWrapper = styled.div`
   box-shadow: 5px 11px 20px 0px #e2e2e2;
@@ -93,7 +116,7 @@ const InfoWrapper = styled.div`
   padding: 18px 18px 18px 25px;
   width: 75%;
   position: relative;
-  top: -80px;
+  top: -50px;
   background-color: #fff;
 `;
 
@@ -133,7 +156,7 @@ const AgeText = styled.p`
 `;
 
 const Description = styled.p`
-  color: #787878;
+  color: #add551;
   margin: 5px 0;
   font-size: 14px;
 `;
@@ -154,6 +177,20 @@ const Heart = styled.button`
   width: 40px;
   height: 40px;
   border: 1px solid #bebebed0;
+  :active {
+    transform: translateY(2px);
+  }
+`;
+
+const HeartActive = styled.button`
+  background-color: rgb(255, 173, 173);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  :active {
+    transform: translateY(2px);
+  }
 `;
 
 const Adoption = styled.button`
