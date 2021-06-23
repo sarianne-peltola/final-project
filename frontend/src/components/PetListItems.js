@@ -129,6 +129,7 @@ const Heart = styled.button`
   bottom: 39px;
   width: 40px;
   height: 40px;
+  cursor: pointer;
   border: 1px solid #bebebed0;
   :active {
     transform: translateY(2px);
@@ -136,7 +137,7 @@ const Heart = styled.button`
 `;
 
 const HeartActive = styled.button`
-  background-color: rgb(255, 173, 173);
+  background-color: rgb(255 242 228);
   border-radius: 50%;
   position: absolute;
   z-index: 1;

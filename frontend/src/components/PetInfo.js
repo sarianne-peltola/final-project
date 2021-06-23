@@ -33,9 +33,9 @@ const PetInfo = ({
   return (
     <Container>
       <ProfileImage background={photo}>
-          <BackLink className='back-link' to='/'>
-            <i className='fas fa-arrow-left'></i>
-          </BackLink>
+        <BackLink className='back-link' to='/'>
+          <i className='fas fa-arrow-left'></i>
+        </BackLink>
       </ProfileImage>
       <InfoWrapper>
         <Flex>
@@ -104,11 +104,11 @@ const BackLink = styled(Link)`
   z-index: 1;
   border: none;
   border-radius: 50%;
-  width: 26px;
-  height: 26px;
-  background-color:  #fbce5699;
+  width: 30px;
+  height: 30px;
+  background-color: #adadad2e;
   color: #000;
-`
+`;
 
 const InfoWrapper = styled.div`
   box-shadow: 5px 11px 20px 0px #e2e2e2;
@@ -156,7 +156,7 @@ const AgeText = styled.p`
 `;
 
 const Description = styled.p`
-  color: #add551;
+  color: #787878;
   margin: 5px 0;
   font-size: 14px;
 `;
@@ -183,7 +183,7 @@ const Heart = styled.button`
 `;
 
 const HeartActive = styled.button`
-  background-color: rgb(255, 173, 173);
+  background-color: rgb(255 242 228);
   border-radius: 50%;
   width: 40px;
   height: 40px;

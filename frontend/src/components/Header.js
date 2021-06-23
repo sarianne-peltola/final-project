@@ -90,5 +90,5 @@ const Log = styled.button`
   height: 30px;
   background-color: #fff;
   color: #fbce56;
-
+  cursor: pointer;
 `;
