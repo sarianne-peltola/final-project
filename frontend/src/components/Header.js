@@ -30,7 +30,7 @@ const Header = () => {
           </Log>
         </Link>
         <TitleLink to='/'>
-          <i class='fas fa-paw fa-2x'></i>
+          <i className='fas fa-paw fa-2x'></i>
           <Title>Adopt</Title>
           <TitleTwo>Me</TitleTwo>
         </TitleLink>

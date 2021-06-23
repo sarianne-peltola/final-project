@@ -33,7 +33,7 @@ const PetInfo = ({
   return (
     <Container>
       <ProfileImage background={photo}>
-        <BackLink className='back-link' to='/'>
+        <BackLink to='/'>
           <i className='fas fa-arrow-left'></i>
         </BackLink>
       </ProfileImage>
@@ -74,7 +74,7 @@ const PetInfo = ({
             <i className='fas fa-heart'></i>
           </Heart>
         )}
-        <Link to={{ pathname: `/pets/${_id}/interest`, propsName: name }}>
+        <Link to={{ pathname: `/pets/${_id}/interest`, propsName: name, propsPhoto: photo }}>
           <Adoption>Adoption</Adoption>
         </Link>
       </EndWrapper>
@@ -95,7 +95,8 @@ const ProfileImage = styled.div`
   background-size: cover;
   position: relative;
   background-position: center;
-`;
+  border-radius: 20px 20px 0 0;
+`
 
 const BackLink = styled(Link)`
   position: absolute;
