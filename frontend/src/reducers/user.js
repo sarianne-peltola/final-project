@@ -145,13 +145,7 @@ export const updateInterestPet = (accessToken, userID, petId) => {
 
     fetch(PET_URL(petId), options)
       .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          dispatch(user.actions.setErrors(null));
-        } else {
-          dispatch(user.actions.setErrors(data));
-        }
-      });
+      .then((data) => {});
   };
 };
 

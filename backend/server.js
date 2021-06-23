@@ -265,13 +265,12 @@ app.patch('/pets/:id/interest', async (req, res) => {
       interestPet: id,
     });
     if (updateInterest) {
-      res.json({ success: true, updateInterest });
-      console.log(updateInterest)
+      res.json({ updateInterest });
     } else {
       res.status(404).json({ message: 'Not found' });
     }
   } catch (error) {
-    res.status(400).json({ success: false, message: 'Invalid request', error });
+    res.status(400).json({ message: 'Invalid request', error });
   }
 });
 

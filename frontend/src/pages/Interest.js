@@ -7,6 +7,7 @@ import styled from 'styled-components/macro';
 import { interestMessage } from '../reducers/user';
 import { updateInterestPet } from '../reducers/user';
 import SubmitMessage from '../components/SubmitMessage';
+import Error from '../components/Error'
 
 const Interest = (props) => {
   const { petId } = useParams();
@@ -20,12 +21,22 @@ const Interest = (props) => {
   const [message, setMessage] = useState('');
   const userID = useSelector((store) => store.user.userID);
   const [submitted, setSubmitted] = useState(false);
+  const errors = useSelector((store) => store.user.errors)
+  const [errorMessage, setErrorMessage] = useState('')
+  const interestPet = useSelector((store) => store.user.interestPet)
 
   useEffect(() => {
     if (!accessToken) {
       history.push('/login');
     }
-  }, [accessToken, history]);
+    if (errors) {
+      setErrorMessage(errors.message)
+      setSubmitted(false)
+    }
+    if (interestPet === petId) {
+      setSubmitted(true)
+    }
+  }, [accessToken, history, errors, interestPet, petId]);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -33,14 +44,13 @@ const Interest = (props) => {
       interestMessage(accessToken, userName, email, petId, petName, message)
     );
     dispatch(updateInterestPet(accessToken, userID, petId));
-    setSubmitted(true);
   };
 
   return (
     <Container>
-      {submitted ? (
+      {(submitted && errorMessage === '') ? (
         <SubmitMessage />
-      ) : (
+      ) : (submitted === false && errorMessage === '') ? (
         <>
           <ProfileImage background={petPhoto}></ProfileImage>
           <BackLink to={`/pets/${petId}`}>
@@ -66,7 +76,9 @@ const Interest = (props) => {
             <Adoption type='submit'>Send</Adoption>
           </InterestForm>
         </>
-      )}
+      ) :
+      <Error />
+      }
     </Container>
   );
 };
@@ -105,7 +117,7 @@ const ProfileImage = styled.div`
   border-radius: 50%;
 `;
 
-const InterestForm = styled.div`
+const InterestForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;

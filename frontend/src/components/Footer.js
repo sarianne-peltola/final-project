@@ -8,10 +8,10 @@ const Footer = () => {
       <p>Created by Sari-Anne Peltola</p>
       <div>
         <SocialMedia href='https://github.com/sarianne-peltola/'>
-          <i class='fab fa-github'></i>
+          <i className='fab fa-github'></i>
         </SocialMedia>
         <SocialMedia href='https://www.linkedin.com/in/sari-anne-peltola-55933b10a/'>
-          <i class='fab fa-linkedin'></i>
+          <i className='fab fa-linkedin'></i>
         </SocialMedia>
       </div>
     </FooterStyle>

@@ -39,7 +39,7 @@ const MyPage = () => {
     <Container>
       <InfoCard>
         <PageHeader>My page</PageHeader>
-        <i class='fas fa-user fa-5x'></i>
+        <i className='fas fa-user fa-5x'></i>
         <Detail>
           <b>Name:</b> {ProfileData.name}
         </Detail>

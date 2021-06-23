@@ -36,7 +36,7 @@ const Header = () => {
         </TitleLink>
         {accessToken && (
           <Log onClick={onButtonClick}>
-            <i class='fas fa-sign-out-alt'></i>
+            <i className='fas fa-sign-out-alt'></i>
           </Log>
         )}
       </FlexWrapper>
