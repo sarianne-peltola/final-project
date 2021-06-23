@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
 
 const SubmitMessage = () => {
   return (
     <Wrapper>
       <i className='fas fa-envelope fa-3x'></i>
-      <div>Thank you for your interest!</div>
+      <Message>Thank you for your interest!</Message>
+      <BackLink to='/'>
+        <i className='fas fa-arrow-left'></i>
+      </BackLink>
     </Wrapper>
   );
 };
@@ -18,4 +22,21 @@ const Wrapper = styled.div`
   align-items: center;
   height: 70vh;
   justify-content: center;
-`
+`;
+
+const BackLink = styled(Link)`
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #adadad2e;
+  color: #000;
+`;
+
+const Message = styled.div`
+  padding: 20px;
+`;

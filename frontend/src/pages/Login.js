@@ -13,9 +13,10 @@ const Login = () => {
   const [mode, setMode] = useState(null);
 
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const accessToken = useSelector((store) => store.user.accessToken);
   const errors = useSelector((store) => store.user.errors);
-  const history = useHistory();
 
   useEffect(() => {
     if (accessToken) {
@@ -66,7 +67,9 @@ const Login = () => {
         </ButtonWrapper>
       </Form>
       {errors && <div>{errors.message}</div>}
-      <LinkSignup to='/signup'>No account yet? <u>Sign up here</u></LinkSignup>
+      <LinkSignup to='/signup'>
+        No account yet? <u>Sign up here</u>
+      </LinkSignup>
     </PageWrapper>
   );
 };
@@ -77,7 +80,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   border-radius: 20px 20px 0 0;
   padding: 20px;
   align-items: center;
@@ -219,4 +222,4 @@ const Button = styled.button`
 const LinkSignup = styled(Link)`
   text-decoration: none;
   color: #000;
-`
+`;

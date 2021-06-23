@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { API_URL } from '../reusable/urls';
 
 import PetInfo from '../components/PetInfo'
+import Error from '../components/Error'
 
 const PetDetail = () => {
   const { petId } = useParams();
@@ -26,7 +27,7 @@ const PetDetail = () => {
   }, [petId, error, PET_LINK]);
 
   return (
-  error ? <div>Erroooor</div> :
+  error ? <Error /> :
     <PetInfo {...petInfo} />
   )
 };

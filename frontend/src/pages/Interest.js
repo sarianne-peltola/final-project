@@ -6,6 +6,7 @@ import styled from 'styled-components/macro';
 
 import { interestMessage } from '../reducers/user';
 import { updateInterestPet } from '../reducers/user';
+
 import SubmitMessage from '../components/SubmitMessage';
 import Error from '../components/Error';
 
@@ -13,17 +14,21 @@ const Interest = (props) => {
   const { petId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const petName = props.location.propsName;
+  const petPhoto = props.location.propsPhoto;
+
   const accessToken = useSelector((store) => store.user.accessToken);
   const userName = useSelector((store) => store.user.name);
   const email = useSelector((store) => store.user.email);
-  const petName = props.location.propsName;
-  const petPhoto = props.location.propsPhoto;
-  const [message, setMessage] = useState('');
   const userID = useSelector((store) => store.user.userID);
-  const [submitted, setSubmitted] = useState(false);
-  const errors = useSelector((store) => store.user.errors);
-  const [errorMessage, setErrorMessage] = useState('');
   const interestPet = useSelector((store) => store.user.interestPet);
+  const errors = useSelector((store) => store.user.errors);
+
+  const [message, setMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
 
   useEffect(() => {
     if (!accessToken) {

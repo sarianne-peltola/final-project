@@ -28,13 +28,6 @@ const MyPage = () => {
     }
   }, [accessToken, history]);
 
-  // const findName = (interestPet) => {
-  //   const nameObject = store.petData.find((p) => p._id === interestPet)
-  //   return (
-  //     setDogName(nameObject['name'])
-  //   )
-  // }
-
   return (
     <Container>
       <InfoCard>

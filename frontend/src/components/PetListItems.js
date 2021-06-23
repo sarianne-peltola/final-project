@@ -168,4 +168,12 @@ const HeartActive = styled.button`
   :active {
     transform: translateY(2px);
   }
+
+  @media (min-width: 425px) {
+    right: 60px;
+  }
+
+  @media (min-width: 550px) {
+    right: 80px;
+  }
 `;

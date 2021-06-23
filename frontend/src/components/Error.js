@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Error = () => {
   return (
     <Wrapper>
-      <i className="fas fa-bug fa-3x"></i>
+      <i className='fas fa-bug fa-3x'></i>
       <Message>Something went wrong!</Message>
       <BackLink to='/'>
         <i className='fas fa-arrow-left'></i>
@@ -39,4 +39,4 @@ const BackLink = styled(Link)`
 
 const Message = styled.div`
   padding: 20px;
-`
+`;

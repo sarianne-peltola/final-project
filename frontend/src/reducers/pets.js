@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { batch } from 'react-redux'
+import { batch } from 'react-redux';
 
-import { API_URL } from '../reusable/urls'
+import { API_URL } from '../reusable/urls';
 
 const initialState = localStorage.getItem('pets')
   ? {

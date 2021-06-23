@@ -13,9 +13,11 @@ const Signup = () => {
   const [mode, setMode] = useState(null);
 
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const accessToken = useSelector((store) => store.user.accessToken);
   const errors = useSelector((store) => store.user.errors);
-  const history = useHistory();
+
 
   useEffect(() => {
     if (accessToken) {
