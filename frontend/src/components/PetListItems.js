@@ -160,7 +160,7 @@ const HeartActive = styled.button`
   border-radius: 50%;
   position: absolute;
   z-index: 1;
-  right: 60px;
+  right: 50px;
   bottom: 39px;
   width: 40px;
   height: 40px;
