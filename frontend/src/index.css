@@ -34,3 +34,8 @@ body {
   font-size: 15px;
   color: #ffc1c1;
 }
+
+.fa-user {
+  color: #4f6cff;
+  margin: 15px;
+}
