@@ -10,11 +10,11 @@ body {
 }
 
 .fa-user-circle {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .fa-sign-out-alt {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .fa-arrow-left {
@@ -23,10 +23,6 @@ body {
 
 .fa-clock {
   margin-top: 3px;
-}
-
-.fa-paw {
-  margin-top: 5px;
 }
 
 .fa-heart {

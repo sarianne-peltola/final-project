@@ -31,8 +31,7 @@ const Header = () => {
         </Link>
         <TitleLink to='/'>
           <i className='fas fa-paw fa-2x'></i>
-          <Title>Adopt</Title>
-          <TitleTwo>Me</TitleTwo>
+          <Title>Adopt Me</Title>
         </TitleLink>
         {accessToken && (
           <Log onClick={onButtonClick}>
@@ -69,25 +68,15 @@ const TitleLink = styled(Link)`
 const Title = styled.h1`
   font-family: 'Righteous', cursive;
   display: inline;
-  margin: 8px 5px 0 5px;
+  margin: 1px 5px 0 5px;
   font-size: 30px;
-`;
-
-const TitleTwo = styled.h1`
-  margin: 8px 5px 0 0px;
-  font-family: 'Londrina Outline', cursive;
-  display: inline;
-  font-size: 35px;
-  font-weight: 100;
-  letter-spacing: 1px;
-  color: #ffc337;
 `;
 
 const Log = styled.button`
   border-radius: 50%;
   border: none;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   background-color: #fff;
   color: #fbce56;
   cursor: pointer;
