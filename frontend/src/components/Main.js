@@ -4,7 +4,6 @@ import styled from 'styled-components/macro';
 
 import { petList } from '../reducers/pets'
 import PetListItems from './PetListItems'
-import Header from './Header'
 
 const Main = () => {
   const dispatch = useDispatch()
@@ -17,7 +16,6 @@ const Main = () => {
   
   return (
     <>
-    <Header />
     <Container>
       {petData ?
       petData.map(pet => (

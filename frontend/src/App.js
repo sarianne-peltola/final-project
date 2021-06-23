@@ -27,6 +27,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
+        <Header />
         <Switch>
           <Route exact path='/' component={Main} />
           <Route exact path='/pets/:petId' component={PetDetail}/>
