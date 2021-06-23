@@ -4,35 +4,35 @@ import { useHistory, Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { HeartFillIcon, MailIcon, KeyIcon } from '@primer/octicons-react';
 
-import { sign } from '../reducers/user'
+import { sign } from '../reducers/user';
 
 const Signup = () => {
-  const [name, setName] = useState('')
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [mode, setMode] = useState(null);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const errors = useSelector((store) => store.user.errors);
   const history = useHistory();
 
   useEffect(() => {
     if (accessToken) {
-      history.push('/mypage')
+      history.push('/mypage');
     }
-  }, [accessToken, history])
+  }, [accessToken, history]);
 
   const onFormSubmit = (e) => {
-    e.preventDefault()
-    dispatch(sign(name, email, password, mode))
-  }
+    e.preventDefault();
+    dispatch(sign(name, email, password, mode));
+  };
 
   return (
     <PageWrapper>
       <h2>Register as a user</h2>
       <Form onSubmit={onFormSubmit}>
-      <Wrapper>
+        <Wrapper>
           <Container>
             <Heart size={24} />
             <InputBox
@@ -76,9 +76,6 @@ const Signup = () => {
           </Container>
         </Wrapper>
         <ButtonWrapper>
-          <Button type='submit' onClick={() => setMode('login')}>
-            Sign in
-          </Button>
           <Button type='submit' onClick={() => setMode('signup')}>
             Register
           </Button>
@@ -87,20 +84,19 @@ const Signup = () => {
       <Link to='/login'>Already an account? Sign in here</Link>
       {errors && <div>{errors.message}</div>}
     </PageWrapper>
-  )
-}
+  );
+};
 
 export default Signup;
 
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  background-color: white;
-  border-radius: 10px;
+  width: 100%;
+  background-color: #f6f6f6;
+  border-radius: 20px 20px 0 0;
   padding: 20px;
-  margin: 20px 0;
-}
+  align-items: center;
 `;
 
 const Wrapper = styled.div`
@@ -110,7 +106,7 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
-  width: 100%;
+  width: 60%;
 `;
 
 const Container = styled.div`
@@ -133,7 +129,7 @@ const Heart = styled(HeartFillIcon)`
   left: 16px;
   right: initial;
   transform: translateY(-50%);
-  color: #505050;
+  color: #4092da;
   font-size: 24px;
   line-height: 1;
   letter-spacing: normal;
@@ -149,7 +145,7 @@ const Mail = styled(MailIcon)`
   left: 16px;
   right: initial;
   transform: translateY(-50%);
-  color: #505050;
+  color: #4092da;
   font-size: 24px;
   line-height: 1;
   letter-spacing: normal;
@@ -165,7 +161,7 @@ const Key = styled(KeyIcon)`
   left: 16px;
   right: initial;
   transform: translateY(-50%);
-  color: #505050;
+  color: #4092da;
   font-size: 24px;
   line-height: 1;
   letter-spacing: normal;
@@ -197,14 +193,14 @@ const InputBox = styled.input`
     }
     padding: 20px 16px 6px 48px;
     background-color: #d3d3d3;
-    border-bottom: 2px solid indigo;
+    border-bottom: 2px solid #0b4f8a;
     ::placeholder {
-      color: indigo;
+      color: #0b4f8a;
     }
     :focus + label {
       bottom: 20px;
       opacity: 1;
-      color: indigo;
+      color: #0b4f8a;
       font-size: 12px;
       z-index: 1;
     }

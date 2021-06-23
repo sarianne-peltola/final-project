@@ -30,6 +30,7 @@ const Login = () => {
 
   return (
     <PageWrapper>
+      <i className='fas fa-user fa-5x'></i>
       <h2>Log in to your account</h2>
       <Form onSubmit={onFormSubmit}>
         <Wrapper>
@@ -65,7 +66,7 @@ const Login = () => {
         </ButtonWrapper>
       </Form>
       {errors && <div>{errors.message}</div>}
-      <Link to='/signup'>No account yet? Sign up here</Link>
+      <LinkSignup to='/signup'>No account yet? <u>Sign up here</u></LinkSignup>
     </PageWrapper>
   );
 };
@@ -75,12 +76,11 @@ export default Login;
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  background-color: white;
-  border-radius: 10px;
+  width: 100%;
+  background-color: #F6F6F6;
+  border-radius: 20px 20px 0 0;
   padding: 20px;
-  margin: 20px 0;
-}
+  align-items: center;
 `;
 
 const Wrapper = styled.div`
@@ -90,7 +90,7 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
-  width: 100%;
+  width: 60%;
 `;
 
 const Container = styled.div`
@@ -113,7 +113,7 @@ const Mail = styled(MailIcon)`
   left: 16px;
   right: initial;
   transform: translateY(-50%);
-  color: #505050;
+  color: #4092da;
   font-size: 24px;
   line-height: 1;
   letter-spacing: normal;
@@ -129,7 +129,7 @@ const Key = styled(KeyIcon)`
   left: 16px;
   right: initial;
   transform: translateY(-50%);
-  color: #505050;
+  color: #4092da;
   font-size: 24px;
   line-height: 1;
   letter-spacing: normal;
@@ -161,14 +161,14 @@ const InputBox = styled.input`
     }
     padding: 20px 16px 6px 48px;
     background-color: #d3d3d3;
-    border-bottom: 2px solid indigo;
+    border-bottom: 2px solid #0b4f8a;
     ::placeholder {
-      color: indigo;
+      color: #0b4f8a;
     }
     :focus + label {
       bottom: 20px;
       opacity: 1;
-      color: indigo;
+      color: #0b4f8a;
       font-size: 12px;
       z-index: 1;
     }
@@ -212,3 +212,8 @@ const Button = styled.button`
     background-image: linear-gradient(45deg, #ffc107 0%, #f76a35 100%);
   }
 `;
+
+const LinkSignup = styled(Link)`
+  text-decoration: none;
+  color: #000;
+`
