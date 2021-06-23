@@ -30,6 +30,7 @@ const Signup = () => {
 
   return (
     <PageWrapper>
+      <i className='fas fa-user fa-5x'></i>
       <h2>Register as a user</h2>
       <Form onSubmit={onFormSubmit}>
         <Wrapper>
@@ -106,7 +107,11 @@ const Wrapper = styled.div`
 `;
 
 const Form = styled.form`
-  width: 60%;
+  width: 70%;
+
+  @media (min-width: 500px) {
+    width: 400px;
+  }
 `;
 
 const Container = styled.div`
@@ -115,7 +120,6 @@ const Container = styled.div`
   display: flex;
   position: relative;
   box-sizing: border-box;
-  max-width: 300px;
   height: 56px;
   :hover {
     background-color: #f1f1f1;

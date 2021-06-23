@@ -96,6 +96,10 @@ const ProfileImage = styled.div`
   position: relative;
   background-position: center;
   border-radius: 20px 20px 0 0;
+
+  @media (min-width: 500px) {
+    width: 500px;
+  }
 `
 
 const BackLink = styled(Link)`
@@ -119,6 +123,10 @@ const InfoWrapper = styled.div`
   position: relative;
   top: -50px;
   background-color: #fff;
+
+  @media (min-width: 500px) {
+    width: 380px;
+  }
 `;
 
 const Flex = styled.div`

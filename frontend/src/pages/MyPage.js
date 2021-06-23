@@ -62,7 +62,7 @@ const Container = styled.div`
   padding: 20px;
   display: flex;
   justify-content: center;
-  height: 70vh;
+  height: 80vh;
 `;
 
 const InfoCard = styled.div`
@@ -75,10 +75,23 @@ const InfoCard = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  justify-content: center;
+
+  @media (min-width: 500px) {
+    width: 500px;
+  }
+
+  @media (min-width: 768px) {
+    width: 600px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 800px;
+  }
 `;
 
 const PageHeader = styled.h1`
-  margin: 0 0 20p 0x;
+  margin: 0 0 10p 0x;
 `;
 
 const Detail = styled.p`

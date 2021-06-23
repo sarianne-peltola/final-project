@@ -59,6 +59,13 @@ const ContainerBox = styled.div`
   width: 100%;
   position: relative;
   margin: 0 0 10px 0;
+
+  @media (min-width: 550px) {
+    width: 480px;
+  }
+  @media (min-width: 1024px) {
+    margin: 0 0 20px 0;
+  }
 `;
 
 const LinkBox = styled(Link)`
@@ -67,6 +74,10 @@ const LinkBox = styled(Link)`
   height: 230px;
   text-decoration: none;
   color: #787878;
+
+  @media (min-width: 550px) {
+    height: 280px;
+  }
 `;
 
 const Picture = styled.div`
@@ -125,7 +136,7 @@ const Heart = styled.button`
   border-radius: 50%;
   position: absolute;
   z-index: 1;
-  right: 60px;
+  right: 50px;
   bottom: 39px;
   width: 40px;
   height: 40px;
@@ -133,6 +144,14 @@ const Heart = styled.button`
   border: 1px solid #bebebed0;
   :active {
     transform: translateY(2px);
+  }
+
+  @media (min-width: 425px) {
+    right: 60px;
+  }
+
+  @media (min-width: 550px) {
+    right: 80px;
   }
 `;
 

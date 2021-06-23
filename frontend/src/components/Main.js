@@ -35,4 +35,10 @@ const Container = styled.div`
   background-color: #F6F6F6;
   border-radius: 20px 20px 0 0;
   padding: 20px;
+
+  @media (min-width: 1023px) {
+    flex-wrap: wrap;
+    flex-direction: unset;
+    justify-content: space-around;
+  }
 `;

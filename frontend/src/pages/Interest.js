@@ -7,7 +7,7 @@ import styled from 'styled-components/macro';
 import { interestMessage } from '../reducers/user';
 import { updateInterestPet } from '../reducers/user';
 import SubmitMessage from '../components/SubmitMessage';
-import Error from '../components/Error'
+import Error from '../components/Error';
 
 const Interest = (props) => {
   const { petId } = useParams();
@@ -21,22 +21,22 @@ const Interest = (props) => {
   const [message, setMessage] = useState('');
   const userID = useSelector((store) => store.user.userID);
   const [submitted, setSubmitted] = useState(false);
-  const errors = useSelector((store) => store.user.errors)
-  const [errorMessage, setErrorMessage] = useState('')
-  const interestPet = useSelector((store) => store.user.interestPet)
+  const errors = useSelector((store) => store.user.errors);
+  const [errorMessage, setErrorMessage] = useState('');
+  const interestPet = useSelector((store) => store.user.interestPet);
 
   useEffect(() => {
     if (!accessToken) {
       history.push('/login');
     }
     if (errors) {
-      setErrorMessage(errors.message)
-      setSubmitted(false)
+      setErrorMessage(errors.message);
+      setSubmitted(false);
     }
     if (interestPet === petId) {
-      setSubmitted(true)
+      setSubmitted(true);
     }
-  }, [accessToken, history, errors, interestPet, petId]);
+  }, [accessToken, history, errors, interestPet, petId, petName]);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -48,10 +48,10 @@ const Interest = (props) => {
 
   return (
     <Container>
-      {(submitted && errorMessage === '') ? (
+      {submitted && errorMessage === '' && petName ? (
         <SubmitMessage />
-      ) : (submitted === false && errorMessage === '') ? (
-        <>
+      ) : submitted === false && errorMessage === '' && petName ? (
+        <FlexWrapper>
           <ProfileImage background={petPhoto}></ProfileImage>
           <BackLink to={`/pets/${petId}`}>
             <i className='fas fa-arrow-left'></i>
@@ -75,10 +75,10 @@ const Interest = (props) => {
             </CountDiv>
             <Adoption type='submit'>Send</Adoption>
           </InterestForm>
-        </>
-      ) :
-      <Error />
-      }
+        </FlexWrapper>
+      ) : (
+        <Error />
+      )}
     </Container>
   );
 };
@@ -93,6 +93,16 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+`;
+
+const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 500px) {
+    width: 500px;
+  }
 `;
 
 const BackLink = styled(Link)`
@@ -121,6 +131,7 @@ const InterestForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 const FormLabel = styled.label`
@@ -135,6 +146,7 @@ const TextArea = styled.textarea`
   overflow: hidden;
   border: none;
   padding: 5px;
+  width: 100%;
 `;
 
 const CountDiv = styled.div`
