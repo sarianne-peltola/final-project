@@ -25,7 +25,7 @@ const PetDetail = () => {
         }
       });
   }, [petId, error, PET_LINK]);
-
+  console.log(PET_LINK)
   return (
   error ? <Error /> :
     <PetInfo {...petInfo} />
