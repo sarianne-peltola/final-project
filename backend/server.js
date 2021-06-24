@@ -73,7 +73,6 @@ const PetMessageSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
   },
   petId: {
     type: String,
@@ -88,7 +87,7 @@ const PetMessageSchema = new mongoose.Schema({
     type: String,
     required: true,
     maxlenght: 250,
-    minlenght: 5,
+    minlenght: 3,
   },
 });
 
@@ -225,7 +224,7 @@ app.post('/login', async (req, res) => {
       res.status(404).json({ success: false, message: 'User not found' });
     }
   } catch (error) {
-    res.status(400).json({ success: false, message: 'Invalid reqeust', error });
+    res.status(400).json({ success: false, message: 'Invalid request', error });
   }
 });
 
